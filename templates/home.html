@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block container %}
+<div class="container">
+<div class="container text-center">
+    {% for id, category in categories.items() %}
+  <div id="categories" class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><strong>{{category['name']}}</strong></p><br>
+      <a href="{{ url_for('category', key=id)}}">
+      <img src="{{category['logo_path']}}" class="img-circle tech"  alt="Random Name" width="255" height="255">
+        </a>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+<style>
+  #categories {
+  display:block;
+  }
+  .col-sm-4{float:left;}
+
+</style>
+{% endblock %}

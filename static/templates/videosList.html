@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+      <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Youtube E-motion</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/jumbotron-narrow.css" rel="stylesheet">
+    <script src="static/js/angular.js"></script>
+    <script>
+       angular.module('myApp', [])
+            .controller('VideoListCtrl', function($scope, $http) {
+
+				$scope.info = {};
+
+
+
+				$scope.showList = function(){
+					$http({
+						method: 'POST',
+						url: '/topVideos',
+					}).then(function(response) {
+						$scope.videos = response.data;
+						console.log('mm',$scope.videos);
+					}, function(error) {
+						console.log(error);
+					});
+				}
+			$scope.showList();
+            })
+    </script>
+    <title>Title</title>
+</head>
+<body ng-controller="VideoListCtrl">
+<h1>Welcome to template</h1>
+<div class="bs-example" data-example-id="panel-without-body-with-table">
+    <div class="panel panel-default">
+        <div class="panel-heading">Top videos found: </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Video ID</th>
+                    <th>Video Name</th>
+                    <th>Number of views</th>
+                    <th>Number of likes</th>
+                    <th>Number of dislikes</th>
+
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="video in videos">
+                <td>{{'{{video.id}}'}}</td>
+                 <td>{{'{{video.videoTitle}}'}}</td>
+                 <td>{{'{{video.videoViews}}'}}</td>
+                 <td>{{'{{video.videoLikes}}'}}</td>
+                 <td>{{'{{video.videoDislikes}}'}}</td>
+
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+</body>
+</html>
