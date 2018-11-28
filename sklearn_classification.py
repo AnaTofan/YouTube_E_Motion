@@ -1,6 +1,3 @@
-im*
-
-
 from statistics import mode
 from nltk.tokenize import word_tokenize
 
