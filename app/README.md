@@ -1,2 +1,0 @@
-# YouTube_E_Motion
-YouTube E-motion is a Python application which performs sentiment analysis on YouTube comments related to controversial technologies by using machine learning techniques and displays the results on a web page. It also proves that an analysis of the polarity of comments in order to identify their trends can provide a clear picture of the  influence that new technologies have on potential customers.
